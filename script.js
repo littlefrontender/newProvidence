@@ -110,6 +110,7 @@ document.querySelector('.menu_icon').addEventListener('click', () => {
     document.querySelector('.menu__burger').classList.add('menu__burger--show');
 });
 
-document.querySelector('.burger__close').addEventListener('click', () => {
+document.querySelector('.burger__close').addEventListener('click', (e) => {
+    e.preventDefault();
     document.querySelector('.menu__burger').classList.remove('menu__burger--show');
 });

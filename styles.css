@@ -51,7 +51,6 @@ a {
   text-decoration: none;
 }
 .menu__burger {
-  visibility: hidden;
   position: fixed;
   left: -380px;
   top: 0;
@@ -69,7 +68,6 @@ a {
 }
 .menu__burger--show {
   left: 0;
-  visibility: visible;
 }
 .menu__burger .burger__close {
   position: absolute;
