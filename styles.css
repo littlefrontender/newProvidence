@@ -27,6 +27,7 @@ header .headerContainer {
   background-color: #fff;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   position: fixed;
+  z-index: 1000;
   top: 0;
   right: 0;
   left: 0;
@@ -45,6 +46,92 @@ header .menu_icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+a {
+  text-decoration: none;
+}
+.menu__burger {
+  visibility: hidden;
+  position: fixed;
+  left: -380px;
+  top: 0;
+  bottom: 0;
+  width: 380px;
+  height: 100vh;
+  background: #26272d;
+  transition: left 0.7s cubic-bezier(0.545, 0, 0.05, 1);
+  z-index: 1001;
+  color: #fff;
+  padding: 40px;
+  padding-top: 51px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
+}
+.menu__burger--show {
+  left: 0;
+  visibility: visible;
+}
+.menu__burger .burger__close {
+  position: absolute;
+  top: 51px;
+  right: 40px;
+}
+.menu__burger .burger__links {
+  margin-top: 40px;
+  list-style: none;
+  padding: 0;
+}
+.menu__burger .burger__links li {
+  margin: 10px 0;
+}
+.menu__burger .burger__links a {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.menu__burger .burger__links a:hover {
+  color: #337ab7;
+}
+.menu__burger .getApp {
+  margin-top: 20px;
+}
+.menu__burger .burger__footer {
+  position: absolute;
+  left: 40px;
+  bottom: 25px;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+}
+.menu__burger .burger__footer a {
+  text-decoration: underline;
+  color: #267df4;
+}
+.menu__burger .burger__footer a:hover {
+  color: #23527c;
+}
+.menu__burger .burger__footer p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+}
+.menu__burger .burger__footer .burger__social {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.menu__burger .burger__footer .burger__social li {
+  opacity: 0.8;
+  margin-right: 20px;
+  transition: all 0.2s ease-in-out;
+}
+.menu__burger .burger__footer .burger__social li:hover {
+  opacity: 1;
+}
+.menu__burger .burger__footer .burger__social li:last-child {
+  margin-right: 0;
 }
 .contacts_header {
   width: 290px;

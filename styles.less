@@ -5,7 +5,6 @@
 @border: 1px dashed rgb(68, 68, 68);
 @blue: #267df4;
 
-
 body {
     margin:0;
     padding: 0;
@@ -39,6 +38,7 @@ header {
         background-color: #fff;
         box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
         position: fixed;
+        z-index: 1000;
         top: 0;
         right: 0;
         left: 0;
@@ -62,8 +62,101 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
 
+// Burger Menu
 
+a {
+    text-decoration: none;
+}
+
+.menu__burger {
+    visibility: hidden;
+    position: fixed;
+    left: -380px;
+    top: 0;
+    bottom: 0;
+    width: 380px;
+    height: 100vh;
+    background: #26272d;
+    transition: left .7s cubic-bezier(0.545, 0, 0.05, 1);
+    z-index: 1001;
+    color: #fff;
+    padding: 40px;
+    padding-top: 51px;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+    &--show {
+        left: 0;
+        visibility: visible;
+    }
+
+    .burger__close {
+        position: absolute;
+        top: 51px;
+        right: 40px;
+    }
+
+    .burger__links {
+        margin-top: 40px;
+        list-style: none;
+        padding: 0;
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #fff;
+            font-family: @lato;
+            @{fs}: 16px;
+            line-height: 1.4;
+            &:hover {
+                color: #337ab7;
+            }
+        }
+    }
+
+    .getApp {
+        margin-top: 20px;
+    }
+
+    .burger__footer {
+        position: absolute;
+        left: 40px;
+        bottom: 25px;
+        font-family: @lato;
+        @{fs}: 16px;
+        a {
+            text-decoration: underline;
+            color: #267df4;
+            &:hover {
+                color: #23527c;
+            }
+        }
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 24px;
+            margin: 0;
+        }
+
+        .burger__social {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            li {
+                opacity: 0.8;
+                margin-right: 20px;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    opacity: 1;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
 }
 
 .contacts_header {
@@ -88,8 +181,9 @@ header {
 
     cursor: pointer;
 
-    img {display: block;
-    margin:0}
+    img {
+        display: block;
+        margin:0}
 
     p {
         display: block;
@@ -511,7 +605,7 @@ header {
         align-items: center;
         .photo {
             border-radius: 130px;
-            cursor:pointer;
+            cursor: pointer;
             opacity: .3;
             transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
             }
