@@ -1,5 +1,5 @@
 window.addEventListener('scroll', function () {
-    if (window.pageYOffset > 20 && window. pageYOffset < 250) {
+    if (window.pageYOffset > 0) {
         document.querySelector('.headerContainer').classList.add('active');
     } else {
         document.querySelector('.headerContainer').classList.remove('active');
@@ -8,71 +8,49 @@ window.addEventListener('scroll', function () {
 
 /*===SLIDER===*/
 
-let arrowLeft = document.querySelector('.arrow1');
-let arrowRight = document.querySelector('.arrow2');
-let containerComment = document.querySelector('.containerComment');
+const arrowLeft = document.querySelector('.arrow1');
+const arrowRight = document.querySelector('.arrow2');
+const containerComment = document.querySelector('.containerComment');
 let offset = 570;
 
-let photoButton = document.querySelectorAll('.photo');
+const photoButton = document.querySelectorAll('.photo');
+
+function getClassPhoto(n, w) {
+    if (offset === n) {
+        photoButton.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        photoButton[w].classList.add('active');
+    }
+}
 
 arrowLeft.addEventListener('click', function () {
+    clearInterval(inst);
     offset-= 570;
     if(offset < 0) {
         offset = 1140;
     }
-    if (offset===0) {
-        photoButton.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        photoButton[0].classList.add('active');
-    }
-    
-    if (offset===570) {
-        photoButton.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        photoButton[1].classList.add('active');
-    }
-    
-    if (offset===1140) {
-        photoButton.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        photoButton[2].classList.add('active');
-    }
+    getClassPhoto(0, 0);
+    getClassPhoto(570, 1);
+    getClassPhoto(1140, 2);
     containerComment.style.right = offset + 'px';
 });
 
 arrowRight.addEventListener('click', function () {
+    clearInterval(inst);
     offset+= 570;
     if(offset > 1140) {
         offset = 0;
     }
-    if (offset===0) {
-        photoButton.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        photoButton[0].classList.add('active');
-    }
-    
-    if (offset===570) {
-        photoButton.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        photoButton[1].classList.add('active');
-    }
-    
-    if (offset===1140) {
-        photoButton.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        photoButton[2].classList.add('active');
-    }
+    getClassPhoto(0, 0);
+    getClassPhoto(570, 1);
+    getClassPhoto(1140, 2);
     containerComment.style.right = offset + 'px';
 });
 
 for (let i=0 ;i < photoButton.length; i++) {
     photoButton[i].addEventListener('click', function () {
+        clearInterval(inst);
         offset = i*570;
         containerComment.style.right = offset + 'px';
         if (!photoButton[i].classList.contains('active')) {
@@ -83,6 +61,19 @@ for (let i=0 ;i < photoButton.length; i++) {
         }
     });
 }
+
+/*===SetInterval for Slider===*/
+
+const inst = setInterval(() => {
+    offset+= 570;
+    if(offset > 1140) {
+        offset = 0;
+    }
+    getClassPhoto(0, 0);
+    getClassPhoto(570, 1);
+    getClassPhoto(1140, 2);
+    containerComment.style.right = offset + 'px';
+},3000);
 
 /*===Switch Toggle===*/
 
