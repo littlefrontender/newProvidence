@@ -445,12 +445,12 @@ a {
 }
 .interface {
   display: flex;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
   margin-top: 40px;
 }
 .interface .iphoneInterface:first-child {
-  margin-left: -160px;
   margin-right: 15px;
 }
 .interface .iphoneInterface:last-child {
